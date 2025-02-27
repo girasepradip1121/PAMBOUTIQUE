@@ -158,7 +158,7 @@ const handleSortChange = (sortOption) => {
             >
               <img
                 src={product.images && product.images.length > 0 
-                      ? `http://localhost:3000/${JSON.parse(product.images)[0]}` 
+                      ? `${API_URL}/${JSON.parse(product.images)[0]}` 
                       : shop}
                 alt={`Product ${index + 1}`}
                 className="w-full h-[300px] object-cover mb-4 rounded-md"
