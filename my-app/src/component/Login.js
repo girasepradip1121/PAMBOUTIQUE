@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { useNavigate } from "react-router-dom";
+import { Link,useNavigate } from "react-router-dom";
 import axios from "axios";
 import { ToastContainer, toast } from "react-toastify"; 
 import "react-toastify/dist/ReactToastify.css";
@@ -163,9 +163,9 @@ const Login = () => {
       {!isLoggedIn && (
         <p className="text-sm text-gray-600">
           New user?{" "}
-          <a href="/User" className="text-blue-600 hover:underline">
+          <Link to="/User" className="text-blue-600 hover:underline">
             Create an account
-          </a>
+          </Link>
         </p>
       )}
     </div>

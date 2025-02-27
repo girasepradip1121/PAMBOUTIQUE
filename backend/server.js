@@ -18,7 +18,7 @@ const customTshirtRoute=require('./routes/customTshirtRoute')
 
 app.use('/user',userRoutes)
 app.use('/product',productRoutes)
-app.use('/cart',cartRoutes)
+app.use('/cart',cartRoutes) 
 app.use('/order',orderRoutes)
 app.use('/contact',customTshirtRoute)
 
@@ -32,7 +32,7 @@ sequelize.sync({ force: false })  // 'force: true' will drop the tables and recr
   })
   .catch(err => {
     console.error("Error syncing database:", err);
-  });
+  }); 
 
 app.listen(3000, () => {
   console.log('Server running on http://localhost:3000');

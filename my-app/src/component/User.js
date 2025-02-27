@@ -3,6 +3,7 @@ import axios from "axios";
 import { ToastContainer, toast } from "react-toastify"; 
 import "react-toastify/dist/ReactToastify.css";
 import { API_URL } from "../Variable";
+import { Link } from "react-router-dom";
 
 const Registration = () => {
   const [name, setName] = useState(""); // Add name state
@@ -134,9 +135,9 @@ const Registration = () => {
       {/* Login Link */}
       <p className="text-sm text-gray-600 mt-6">
         Already a member?{" "}
-        <a href="/login" className="text-blue-600 hover:underline">
+        <Link to="/login" className="text-blue-600 hover:underline">
           Login
-        </a>
+        </Link>
       </p>
     </div>
     </>
