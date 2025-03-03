@@ -8,6 +8,8 @@ import { API_URL } from "../Variable";
 
 const Products = () => {
   const [products, setProducts] = useState([]);
+  const token = localStorage.getItem("userToken");
+
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [form, setForm] = useState({
     id: "",
@@ -46,7 +48,9 @@ const Products = () => {
 
   const handleDelete = async (id) => {
     try {
-      await axios.delete(`${API_URL}/product/deleteproduct/${id}`);
+      await axios.delete(`${API_URL}/product/deleteproduct/${id}`,{
+        headers:{Authorization: `Bearer ${token}`}
+      });
       toast.success("Product Deleted...");
       setProducts(products.filter((product) => product.id !== id));
     } catch (error) {
@@ -133,7 +137,8 @@ const Products = () => {
           formData,
           {
             headers: {
-              "Content-Type": "multipart/form-data", // Needed for file uploads
+              "Content-Type": "multipart/form-data", 
+               Authorization: `Bearer ${token}`
             },
           }
         );
@@ -143,7 +148,8 @@ const Products = () => {
           formData,
           {
             headers: {
-              "Content-Type": "multipart/form-data", // Needed for file uploads
+              "Content-Type": "multipart/form-data",
+              Authorization: `Bearer ${token}`
             },
           }
         );

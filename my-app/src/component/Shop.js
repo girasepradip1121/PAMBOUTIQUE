@@ -164,7 +164,6 @@ const handleSortChange = (sortOption) => {
                 className="w-full h-[300px] object-cover mb-4 rounded-md"
                 onClick={(event) => handOrderInfoClick(product, event)}
               />
-
               <h4 className="text-lg font-semibold">{product.name}</h4>
               <p className="text-gray-500 mt-2">₹{product.price}</p>
             </div>

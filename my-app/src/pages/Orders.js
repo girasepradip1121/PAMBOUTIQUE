@@ -46,10 +46,10 @@ const Orders = () => {
 
   const handleStatusChange = async (orderId, newStatus) => {
     try {
-      await axios.put(`${API_URL}/order/manageorder/${orderId}`, {
-        status: newStatus,
-        headers: { Authorization: `Bearer ${token}` },
-      });
+      await axios.put(`${API_URL}/order/manageorder/${orderId}`, 
+       { status: newStatus},
+        {headers: { Authorization: `Bearer ${token}` }},
+      );
       setOrders((prevOrders) =>
         prevOrders.map((order) =>
           order.orderId === orderId ? { ...order, status: newStatus } : order

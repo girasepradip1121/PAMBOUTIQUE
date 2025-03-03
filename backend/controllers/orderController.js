@@ -109,27 +109,18 @@ const getAllOrders = async (req, res) => {
   }
 };
 
-// Update order status
-const updateOrderStatus = async (req, res) => {
+const updateOrderStatus=async (req,res)=>{
   const { id } = req.params;
   const { status } = req.body;
-
   try {
-    const order = await Order.findByPk(id);
-
-    if (!order) {
-      return res.status(404).json({ message: 'Order not found' });
-    }
-
-    order.status = status;
-    await order.save();
-
-    res.status(200).json({ message: 'Order status updated successfully', order });
+    // Update the order status in the database
+    await Order.update({ status }, { where: { orderId:id } });
+    res.status(200).send({ message: 'Order status updated successfully' });
   } catch (error) {
-    console.error(error);
-    res.status(500).json({ message: 'Failed to update order status', error });
+    console.log(error);
+    res.status(500).send({ message: 'Error updating order status' });
   }
-};
+}
 
 // Delete an order
 const deleteOrder = async (req, res) => {
